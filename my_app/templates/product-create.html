@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+
+{% block container %}
+<div class="top-pad">
+    <form class="form-horizontal" method="POST" action="{{ url_for('catalog.create_product') }}"
+          role="form" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-group">
+{#            <label for="name" class="col-sm-2 control-label">Name</label>#}
+{#            <div class="col-sm-10">#}
+{#                <input type="text" class="form-control" id="name" name="name">#}
+{#            </div>#}
+            {{ form.name.label }}:{{ form.name(required='') }}
+        </div>
+        <div class="form-group">
+{#            <label for="price" class="col-sm-2 control-label">Price</label>#}
+{#            <div class="col-sm-10">#}
+{#                <input type="number" class="form-control" id="price" name="price">#}
+{#            </div>#}
+            {{ form.price.label }}:{{ form.price(required='') }}
+        </div>
+        <div class="form-group">
+{#            <label for="category" class="col-sm-2 control-label">Category</label>#}
+{#            <div class="col-sm-10">#}
+{#                <input type="text" class="form-control" id="category" name="category">#}
+{#            </div>#}
+            {{ form.category.label }}:{{ form.category(required='') }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label }}:{{ form.image(style='display:inline;') }}
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+{% endblock %}
